@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-bear-dark font-hand antialiased;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 1px 1px 0px rgba(93, 64, 55, 0.2);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.5);
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 1s ease-out forwards;
+}
