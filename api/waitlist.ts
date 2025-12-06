@@ -51,7 +51,62 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             return res.status(500).json({ error: 'Failed to save email' });
         }
 
-        // 2. Send notification email via Resend
+        // 2. Send thank you email to customer
+        try {
+            await resend.emails.send({
+                from: 'BearSplit <onboarding@resend.dev>',
+                to: [email],
+                subject: 'Welcome to BearSplit! 🐻✨',
+                html: `
+          <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; background: linear-gradient(135deg, #FFF8F0 0%, #FFE4C4 100%);">
+            <div style="text-align: center; margin-bottom: 30px;">
+              <h1 style="color: #6B4423; font-size: 32px; margin: 0;">🐻 Welcome to BearSplit!</h1>
+            </div>
+            
+            <div style="background: white; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+              <p style="color: #5D4037; font-size: 18px; line-height: 1.6; margin: 0 0 20px;">
+                Hey there! 👋
+              </p>
+              
+              <p style="color: #5D4037; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Thanks for joining the BearSplit waitlist! We're building something special – a cozy, stress-free way to split bills with friends.
+              </p>
+              
+              <p style="color: #5D4037; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                You'll be the first to know when we launch. No spam, just the good stuff! 🍯
+              </p>
+              
+              <div style="background: #FFF3E0; border-radius: 12px; padding: 20px; margin: 20px 0; border-left: 4px solid #FF9800;">
+                <p style="color: #5D4037; font-size: 14px; margin: 0;">
+                  <strong>What's coming:</strong><br/>
+                  ✨ Easy bill splitting with friends<br/>
+                  ✨ Beautiful share cards with QR codes<br/>
+                  ✨ No more awkward "who owes who" moments
+                </p>
+              </div>
+              
+              <p style="color: #8D6E63; font-size: 14px; line-height: 1.6; margin: 20px 0 0;">
+                Stay cozy,<br/>
+                <strong>The BearSplit Team</strong> 🐻
+              </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+              <p style="color: #A1887F; font-size: 12px; margin: 0;">
+                You're receiving this because you signed up at bearsplit.app<br/>
+                © ${new Date().getFullYear()} BearSplit. Made with 🍯 and ❤️
+              </p>
+            </div>
+          </div>
+        `,
+            });
+            console.log(`✅ Sent welcome email to ${email}`);
+        } catch (welcomeError) {
+            console.error('Failed to send welcome email:', welcomeError);
+            // Don't fail - signup is still successful
+        }
+
+        // 3. Send notification to admin
         try {
             await resend.emails.send({
                 from: 'BearSplit Waitlist <onboarding@resend.dev>',
