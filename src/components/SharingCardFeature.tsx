@@ -15,7 +15,7 @@ const SharingCardFeature: React.FC = () => {
                     </h2>
                     <p className="text-xl text-bear-dark/80 mb-8 leading-relaxed">
                         No more "send me your bank details". <br />
-                        BearSplit generates a cute, personalized card for each person. Just scan, pay, and you're done!
+                        Our prototype explores personalized settlement cards with an expense breakdown and payment QR. Friends pay externally through their banking app; BearSplit does not process or verify payments.
                     </p>
                     <div className="inline-block bg-white px-6 py-3 rounded-hand border-2 border-bear-dark shadow-soft transform rotate-1 hover:rotate-0 transition-transform cursor-default">
                         <span className="text-2xl mr-2">✨</span>

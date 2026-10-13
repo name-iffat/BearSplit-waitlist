@@ -40,3 +40,5 @@
 .animate-fade-out {
   animation: fadeOut 1s ease-out forwards;
 }
+a:focus-visible, button:focus-visible { outline: 3px solid #6B4423; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

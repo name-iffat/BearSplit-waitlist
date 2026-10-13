@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
                     Join <span className="font-bold text-bear-brown">BearSplit</span> for a cozy, stress-free way to share costs with friends.
                 </p>
 
-                <WaitlistForm />
+                <p className="mb-6 text-sm text-bear-dark">An app in development by HaikaiTech Solutions, Malaysia.</p><WaitlistForm />
 
                 {/* Social Links */}
                 <div className="mt-8 flex justify-center items-center gap-4 flex-wrap">
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 <p className="mt-8 text-sm text-bear-light">
-                    Early access coming soon • 100% Free • No corporate vibes
+                    Prototype · In development · Join for early-access updates
                 </p>
             </div>
         </section>

@@ -2,22 +2,22 @@ import React from 'react';
 
 const features = [
     {
-        title: "No More Lost Receipts",
-        description: "Snap a pic, and we'll keep it safe. Like a bear with honey.",
+        title: "Shared Expenses, Together",
+        description: "Our prototype brings group expenses into one event, including friends joining as guests.",
         icon: "🧾",
         color: "bg-pastel-blue",
         rotate: "-rotate-2"
     },
     {
         title: "No Awkward Math",
-        description: "We calculate who owes who instantly. Save friendships, split bills.",
+        description: "The prototype explores clear balances and recorded settlements, with calculations handled by application code.",
         icon: "🧮",
         color: "bg-pastel-pink",
         rotate: "rotate-1"
     },
     {
         title: "Just Plain Cute",
-        description: "Finance apps are boring. We made one that makes you smile.",
+        description: "A warm bear mascot and playful UI make shared expenses feel more approachable.",
         icon: "🐻",
         color: "bg-pastel-green",
         rotate: "-rotate-1"

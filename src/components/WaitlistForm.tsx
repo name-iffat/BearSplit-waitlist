@@ -54,8 +54,8 @@ const WaitlistForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto flex flex-col gap-4">
             <div className="relative group">
-                <input
-                    type="email"
+                <label htmlFor="waitlist-email" className="sr-only">Email address</label><input
+                    id="waitlist-email" name="email" autoComplete="email" type="email"
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -89,7 +89,7 @@ const WaitlistForm: React.FC = () => {
                     </>
                 )}
             </button>
-        </form>
+        <p className="text-sm text-bear-dark text-center">Join for BearSplit early-access updates. <a className="underline underline-offset-4" href="#privacy">Privacy policy</a> · <a className="underline underline-offset-4" href="mailto:hq@haikaitech.my?subject=BearSplit%20waitlist%20removal">Request removal</a></p></form>
     );
 };
 

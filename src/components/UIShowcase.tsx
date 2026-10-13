@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import homeImg from '../assets/ui-concept/home.png';
 import shareCardImg from '../assets/ui-concept/share-card.png';
 import whoOweWhoImg from '../assets/ui-concept/who-owe-who.png';
@@ -17,34 +17,6 @@ const uiScreens = [
 
 const UIShowcase: React.FC = () => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    // Auto-scroll effect
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (scrollContainerRef.current) {
-                const container = scrollContainerRef.current;
-                const scrollWidth = container.scrollWidth;
-                const clientWidth = container.clientWidth;
-                const maxScroll = scrollWidth - clientWidth;
-
-                // Calculate next position
-                const itemWidth = 304; // 288px width + 16px gap
-                let nextScroll = container.scrollLeft + itemWidth;
-
-                // Reset to start if at the end
-                if (nextScroll >= maxScroll) {
-                    nextScroll = 0;
-                }
-
-                container.scrollTo({
-                    left: nextScroll,
-                    behavior: 'smooth',
-                });
-            }
-        }, 3000); // Auto-scroll every 3 seconds
-
-        return () => clearInterval(interval);
-    }, []);
 
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -76,10 +48,10 @@ const UIShowcase: React.FC = () => {
                         Peek Inside the App! 🐻📱
                     </h2>
                     <p className="text-xl text-bear-dark/80 max-w-2xl mx-auto">
-                        We're designing something special. Here's a sneak peek at what we're building for you!
+                        UI concepts with sample data, not screenshots of a released app. Some concepts show our earlier MoneyCollect working name.
                     </p>
                     <div className="mt-4 inline-block bg-pastel-yellow/50 px-6 py-3 rounded-hand border-2 border-bear-dark shadow-soft transform -rotate-1">
-                        <span className="font-bold text-bear-dark">🎨 Work in Progress</span>
+                        <span className="font-bold text-bear-dark">🎨 UI concepts · In development</span>
                     </div>
                 </div>
 
@@ -131,7 +103,7 @@ const UIShowcase: React.FC = () => {
 
                 <div className="text-center mt-12">
                     <p className="text-bear-dark/70 text-sm">
-                        <em>✨ Auto-scrolling • Click arrows or swipe to navigate ✨</em>
+                        <em>✨ Click arrows or swipe to explore the concepts ✨</em>
                     </p>
                 </div>
             </div>
